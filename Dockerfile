@@ -8,12 +8,12 @@ RUN set -x \
  && wget https://github.com/sgerrand/alpine-pkg-glibc/releases/download/2.23-r3/glibc-2.23-r3.apk \
  && apk add glibc-2.23-r3.apk \
  && apk del curl tar openssl \
- && rm -rf /var/cache/apk/*
+ && rm -rf /var/cache/apk/* \
  
- #&& curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-${FILEBEAT_VERSION}-linux-x86_64.tar.gz \
- #&& tar xzvf filebeat-${FILEBEAT_VERSION}-linux-x86_64.tar.gz -C / --strip-components=1 \
- #&& rm -rf filebeat-${FILEBEAT_VERSION}-linux-x86_64.tar.gz \
- #&& ln -s /filebeat /bin/filebeat
- #&& mkdir -p /applog   #you must mount your logdir to this /applog
+ && curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-${FILEBEAT_VERSION}-linux-x86_64.tar.gz \
+ && tar xzvf filebeat-${FILEBEAT_VERSION}-linux-x86_64.tar.gz -C / --strip-components=1 \
+ && rm -rf filebeat-${FILEBEAT_VERSION}-linux-x86_64.tar.gz \
+ && ln -s /filebeat /bin/filebeat \
+ && mkdir -p /applog   #you must mount your logdir to this /applog
  
  
