@@ -12,7 +12,7 @@ RUN set -x \
  && tar xzvf filebeat-${FILEBEAT_VERSION}-linux-x86_64.tar.gz -C / --strip-components=1 \
  && rm -rf filebeat-${FILEBEAT_VERSION}-linux-x86_64.tar.gz \
  && ln -s /filebeat /bin/filebeat \
- && mkdir -p /applog   #you must mount your logdir to this /applog
+ && mkdir -p /applog \
  
  && apk del curl tar openssl \
  && rm -rf /var/cache/apk/* 
