@@ -1,4 +1,4 @@
-FROM alpine:3.8
+FROM alpine:3.4
 MAINTAINER josan <704504886@qq.com>
 ENV FILEBEAT_VERSION=5.6.5
 RUN set -x \
