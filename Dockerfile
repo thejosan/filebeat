@@ -15,7 +15,7 @@ RUN set -x \
  && mkdir -p /applog   #you must mount your logdir to this /applog
  
  && apk del curl tar openssl \
- && rm -rf /var/cache/apk/* \
+ && rm -rf /var/cache/apk/* 
  
  
  
