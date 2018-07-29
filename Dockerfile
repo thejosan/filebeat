@@ -13,6 +13,9 @@ RUN set -x \
  && rm -rf filebeat-${FILEBEAT_VERSION}-linux-x86_64.tar.gz \
  && ln -s /filebeat /bin/filebeat \
  && mkdir -p /applog \
+ && mkdir -p /applog/pm2 \
+ && mkdir -p /applog/nginx \
+ && mkdir -p /applog/javalog4 \
  
  && apk del curl tar openssl \
  && rm -rf /var/cache/apk/* 
