@@ -1,6 +1,9 @@
 FROM alpine:3.8
 MAINTAINER josan <704504886@qq.com>
 ENV FILEBEAT_VERSION=5.6.5
+
+COPY run.sh filebeat.yml /tmp/
+
 RUN set -x \
  && apk add --update bash curl tar openssl \ 
  && apk --no-cache add ca-certificates \
@@ -16,9 +19,15 @@ RUN set -x \
  && mkdir -p /applog/pm2 \
  && mkdir -p /applog/nginx \
  && mkdir -p /applog/javalog4 \
+ && cat /tmp/filebeat.yml > /filebeat.yml
+ && cp /tmp/run.sh /run.sh
  
+ && rm -rf /glibc-2.23-r3.apk \
+ && rm -rf /tmp/* \ 
  && apk del curl tar openssl \
  && rm -rf /var/cache/apk/* 
+ 
+ CMD /bin/bash /run.sh
  
  
  
