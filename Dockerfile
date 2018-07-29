@@ -19,8 +19,8 @@ RUN set -x \
  && mkdir -p /applog/pm2 \
  && mkdir -p /applog/nginx \
  && mkdir -p /applog/javalog4 \
- && cat /tmp/filebeat.yml > /filebeat.yml
- && cp /tmp/run.sh /run.sh
+ && cat /tmp/filebeat.yml > /filebeat.yml \
+ && cp /tmp/run.sh /run.sh \
  
  && rm -rf /glibc-2.23-r3.apk \
  && rm -rf /tmp/* \ 
