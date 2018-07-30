@@ -3,6 +3,7 @@ MAINTAINER josan <704504886@qq.com>
 ENV FILEBEAT_VERSION=5.6.5
 
 COPY run.sh filebeat.yml /tmp/
+ENV LOGSTASH_URL=192.168.1.1:10057
 
 RUN set -x \
  && apk add --update bash curl tar openssl \ 
@@ -46,7 +47,7 @@ filebeat.prospectors:
   index: h5
   
 output.logstash:
-  hosts: ["192.168.1.1:10057"]
+  hosts: ["$LOGSTASH_URL"]
 EOF \
 
  
