@@ -23,4 +23,4 @@ filebeat.prospectors:
   index: h5
   
 output.logstash:
-  hosts: ["192.168.1.1:10057"]
+  hosts: ["yourlogstashurl"]
