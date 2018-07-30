@@ -21,34 +21,8 @@ RUN set -x \
  && mkdir -p /applog/nginx \
  && mkdir -p /applog/javalog4 \
  && cp /tmp/run.sh /run.sh \
- && cat >/filebeat.yml<<EOF
-filebeat.prospectors:
-- input_type: log
-  paths:
-    - /applog/javalog4/app.log
-  document_type: log4
-  multiline.pattern: ^[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]
-  multiline.negate: true
-  multiline.match: after
-  index: log4
-  
-- input_type: log
-  paths:
-    - /applog/nginx/access.log
-  document_type: nginx
-  
-- input_type: log
-  paths:
-    - /applog/h5/app-error-0.log
-  document_type: h5
-  multiline.pattern: ^[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]
-  multiline.negate: true
-  multiline.match: after
-  index: h5
-  
-output.logstash:
-  hosts: ["$LOGSTASH_URL"]
-EOF \
+ && cat /tmp/filebeat.yml > /filebeat.yml \
+ && sed -i "s/yourlogstashurl/$LOGSTASH_URL/g" /filebeat.yml
 
  
  && rm -rf /glibc-2.23-r3.apk \
