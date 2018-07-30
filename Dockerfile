@@ -22,7 +22,7 @@ RUN set -x \
  && mkdir -p /applog/javalog4 \
  && cp /tmp/run.sh /run.sh \
  && cat /tmp/filebeat.yml > /filebeat.yml \
- && sed -i "s/yourlogstashurl/$LOGSTASH_URL/g" /filebeat.yml
+ && sed -i "s/yourlogstashurl/$LOGSTASH_URL/g" /filebeat.yml \
 
  
  && rm -rf /glibc-2.23-r3.apk \
