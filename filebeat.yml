@@ -1,7 +1,7 @@
 filebeat.prospectors:
 - input_type: log
   paths:
-    - log4_dir
+    - yourlog4dir
   document_type: log4
   multiline.pattern: ^[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]
   multiline.negate: true
@@ -10,12 +10,12 @@ filebeat.prospectors:
   
 - input_type: log
   paths:
-    - nginx_dir
+    - yournginxdir
   document_type: nginx
   
 - input_type: log
   paths:
-    - pm2_dir
+    - yourpm2dir
   document_type: h5
   multiline.pattern: ^[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]
   multiline.negate: true
