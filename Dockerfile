@@ -4,6 +4,9 @@ MAINTAINER josan <704504886@qq.com>
 ENV FILEBEAT_VERSION=5.6.5
 COPY run.sh filebeat.yml /tmp/
 ENV LOGSTASH_URL=192.168.1.1:10057
+ENV LOG4_DIR=/applog/javalog4/log4app.log
+ENV NGINX_DIR=/applog/nginx/access.log
+ENV PM2_DIR=/applog/h5/pm2-app.log
 
 RUN set -x \
  && apk add --update bash curl tar openssl \ 
@@ -22,8 +25,6 @@ RUN set -x \
  && mkdir -p /applog/javalog4 \
  && cp /tmp/run.sh /run.sh \
  && cat /tmp/filebeat.yml > /filebeat.yml \
- && sed -i "s/yourlogstashurl/$LOGSTASH_URL/g" /filebeat.yml \
-
  
  && rm -rf /glibc-2.23-r3.apk \
  && rm -rf /tmp/* \ 
